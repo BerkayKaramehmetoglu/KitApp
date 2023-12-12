@@ -6,20 +6,17 @@ import com.google.gson.annotations.SerializedName
 data class accessInfo(
     @SerializedName("country")
     @Expose
-    var country: String,
+    var country: String?,
     @SerializedName("viewability")
     @Expose
-    var viewability: String,
-    @SerializedName("epub")
-    @Expose
-    var epub: epub,
+    var viewability: String?,
     @SerializedName("pdf")
     @Expose
     var pdf: pdf,
     @SerializedName("webReaderLink")
     @Expose
-    var webReaderLink: String,
+    var webReaderLink: String?,
     @SerializedName("accessViewStatus")
     @Expose
-    var accessViewStatus: String
+    var accessViewStatus: String?,
 )

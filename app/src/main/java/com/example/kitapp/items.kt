@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 data class items(
     @SerializedName("id")
     @Expose
-    var id: String,
+    var id: String?,
     @SerializedName("volumeInfo")
     @Expose
     var volumeInfo: volumeInfo,
