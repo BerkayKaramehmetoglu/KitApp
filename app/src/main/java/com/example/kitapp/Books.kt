@@ -10,7 +10,7 @@ data class Books(
     var totalItems: Int,
     @SerializedName("items")
     @Expose
-    var items: List<items>,
+    var items: List<items>?,
 ) {
 
 

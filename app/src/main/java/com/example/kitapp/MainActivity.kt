@@ -1,6 +1,7 @@
 package com.example.kitapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -11,5 +12,6 @@ class MainActivity : AppCompatActivity() {
         val getBooks = GetBooks()
 
         getBooks.searchBooks("ücretsiz")
+        //getBooks.searchBooks("Özcan Tekdemir")
     }
 }
