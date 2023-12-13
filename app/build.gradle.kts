@@ -7,6 +7,10 @@ android {
     namespace = "com.example.kitapp"
     compileSdk = 33
 
+    buildFeatures{
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.kitapp"
         minSdk = 24
@@ -48,7 +52,10 @@ dependencies {
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.1.0")
 
-    //Json Parsin
+    //Json Parse
     implementation ("com.google.code.gson:gson:2.8.2")
     implementation ("com.squareup.retrofit2:converter-gson:2.3.0")
+
+    //Picasso
+    implementation ("com.squareup.picasso:picasso:2.71828")
 }

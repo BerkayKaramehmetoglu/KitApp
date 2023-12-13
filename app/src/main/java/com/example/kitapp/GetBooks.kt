@@ -35,12 +35,12 @@ class GetBooks() {
                     }
                 }
 
-                if (startIndex + MAX_RESULTS >= items.totalItems) {
+                if ((startIndex + MAX_RESULTS) >= items.totalItems) {
                     return
                 }
 
                 if (page * MAX_RESULTS <= _listes.count()) {
-                    updateFE()
+                    updateList()
                     return
                 }
                 startIndex += MAX_RESULTS
@@ -50,9 +50,9 @@ class GetBooks() {
 
     }
 
-    fun updateFE() {
-        Log.e("Başarılı", "front endi güncelle bu da listen"+listes)
+    private fun updateList() {
+        val listem: MutableList<String> = listes
+        Log.e("aa",listem.toString())
     }
-
 }
 
