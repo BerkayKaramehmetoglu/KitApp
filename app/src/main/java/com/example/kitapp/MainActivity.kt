@@ -1,27 +1,35 @@
 package com.example.kitapp
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kitapp.databinding.ActivityMainBinding
-import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var desing:ActivityMainBinding
+    private lateinit var design: ActivityMainBinding
+    private lateinit var adapter: RVAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        desing = DataBindingUtil.setContentView(this@MainActivity,R.layout.activity_main)
+        design = DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)
 
-        val getBooks = GetBooks()
+        val getBooks = GetBooks(this)
 
-        desing.button.setOnClickListener {
-            val url = "https://books.google.com/books/content?id=UfKKDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
-            Picasso.get()
-                .load(url)
-                .resize(500,500)
-                .into(desing.imageView)
-        }
-        getBooks.searchBooks("ücretsiz")
+
+        getBooks.searchBooks("ücretsiz", 1)
+
+
+    }
+
+    fun getDesign(listes: MutableList<items>) {
+
+        design.recyclerView.setHasFixedSize(true) // tasarım üzerine güzelce oturmasını sağlıyor
+
+        design.recyclerView.layoutManager =
+            LinearLayoutManager(this@MainActivity) //listenin görünümüyle ilgili yapı
+
+        adapter = RVAdapter(this@MainActivity, listes)
+
+        design.recyclerView.adapter = adapter
     }
 }
