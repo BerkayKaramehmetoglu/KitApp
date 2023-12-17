@@ -1,9 +1,13 @@
 package com.example.kitapp
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.kitapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,12 +25,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     fun getDesign(listes: MutableList<items>) {
 
         design.recyclerView.setHasFixedSize(true) // tasarım üzerine güzelce oturmasını sağlıyor
 
         design.recyclerView.layoutManager =
-            LinearLayoutManager(this@MainActivity) //listenin görünümüyle ilgili yapı
+            StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
 
         adapter = RVAdapter(this@MainActivity, listes)
 

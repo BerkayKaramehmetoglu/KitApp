@@ -12,7 +12,7 @@ data class volumeInfo(
     var subtitle: String?,
     @SerializedName("authors")
     @Expose
-    var authors: List<String>?,
+    var authors: List<String>?,//
     @SerializedName("publisher")
     @Expose
     var publisher: String?,

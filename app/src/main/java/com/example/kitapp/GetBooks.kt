@@ -54,10 +54,5 @@ class GetBooks(private val instance: MainActivity) {
         })
 
     }
-
-    private fun updateList() {
-        val listem: MutableList<items> = listes
-    }
-
 }
 

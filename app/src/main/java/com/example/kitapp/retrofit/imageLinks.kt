@@ -7,5 +7,5 @@ import com.google.gson.annotations.SerializedName
 data class imageLinks(
     @SerializedName("smallThumbnail")
     @Expose
-    var smallThumbnail: String
+    var extraLarge: String
 )
