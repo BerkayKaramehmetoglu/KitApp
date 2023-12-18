@@ -44,7 +44,6 @@ class GetBooks(private val instance: MainActivity) {
 
                 if (_page * MAX_RESULTS <= listes.count()) {
                     instance.getDesign(listes)
-                    //updateList()
                     return
                 }
 
