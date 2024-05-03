@@ -2,6 +2,7 @@ package com.example.kitapp
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,6 +46,7 @@ class RVAdapter(
     }
 
     override fun onBindViewHolder(holder: CardDesign, position: Int) {
+
         val listes = listes[position]
 
         val tasarim = LayoutInflater.from(mContext).inflate(R.layout.custom_popup, null)
@@ -86,7 +88,6 @@ class RVAdapter(
             closeButton.setOnClickListener {
                 dialog.dismiss()
             }
-
             dialog.show()
 
         }

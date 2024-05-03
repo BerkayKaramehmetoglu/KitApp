@@ -8,6 +8,7 @@ android {
     compileSdk = 33
 
     buildFeatures{
+        //noinspection DataBindingWithoutKapt
         dataBinding = true
     }
 
