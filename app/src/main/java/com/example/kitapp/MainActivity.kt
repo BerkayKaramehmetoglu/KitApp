@@ -5,10 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView.OnQueryTextListener
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.kitapp.databinding.ActivityMainBinding
 
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity(), OnQueryTextListener{
         super.onCreate(savedInstanceState)
         design = DataBindingUtil.setContentView(this@MainActivity, R.layout.activity_main)
 
-        val getBooks = GetBooks(this)
+        val getBooks = GetBooks(this, design)
         design.toolbar.title = "Ücretsiz KitAPP'lar"
         setSupportActionBar(design.toolbar)
         getBooks.searchBooks("ücretsiz", 1)
@@ -31,8 +33,7 @@ class MainActivity : AppCompatActivity(), OnQueryTextListener{
 
         design.recyclerView.setHasFixedSize(true) // tasarım üzerine güzelce oturmasını sağlıyor
 
-        design.recyclerView.layoutManager =
-            StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
+        design.recyclerView.layoutManager = LinearLayoutManager(this)
 
         adapter = RVAdapter(this@MainActivity, listes)
 
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity(), OnQueryTextListener{
         return super.onCreateOptionsMenu(menu)
     }
 
+//arama özelliği
     override fun onQueryTextSubmit(p0: String?): Boolean {
         Log.e("Her arama yapıldığında", p0!!)
         return true

@@ -1,15 +1,17 @@
 package com.example.kitapp
 
 import android.util.Log
-import com.example.kitapp.retrofit.imageLinks
-import com.example.kitapp.MainActivity
+import android.view.View
+import com.example.kitapp.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class GetBooks(private val instance: MainActivity) {
-
+class GetBooks(
+    private val instance: MainActivity,
+    private val design: ActivityMainBinding
+) {
     private val rft = ApiUtils.getIBooksDao()
     private var startIndex = 0
     private var _listes: MutableList<items> = mutableListOf()
@@ -18,6 +20,7 @@ class GetBooks(private val instance: MainActivity) {
         get() {
             return _listes
         }
+
     companion object {
         private const val MAX_RESULTS = 40
         private const val VIEW_ABILITY: String = "ALL_PAGES"
@@ -43,6 +46,7 @@ class GetBooks(private val instance: MainActivity) {
                 }
 
                 if (_page * MAX_RESULTS <= listes.count()) {
+                    design.progressBar.visibility = View.GONE
                     instance.getDesign(listes)
                     return
                 }
@@ -51,7 +55,6 @@ class GetBooks(private val instance: MainActivity) {
                 searchBooks(query, _page)
             }
         })
-
     }
 }
 
